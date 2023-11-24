@@ -9,6 +9,7 @@ This project creates a webpage that fetches the Astronomy Picture of the Day (AP
 - [Usage](#usage)
 - [Reference](#api-reference)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Introduction
 
@@ -36,3 +37,6 @@ Contributions to enhance the project are welcome! To contribute, follow these st
 3. Make changes and commit them (`git commit -am 'Add new feature'`).
 4. Push to the branch (`git push origin feature/enhancement`).
 5. Create a pull request.
+
+## License
+This project is licensed under the MIT License.

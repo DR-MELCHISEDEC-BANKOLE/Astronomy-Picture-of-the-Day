@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Astronomy Picture of the Day</title>
+    <title>Author: Dr. Melchisedec Bankole</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #apod-image {
+            max-width: 100%;
+            height: auto;
+        }
+        #header, #footer {
+            background-color: #F0B90B;
+            color: #000000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Astronomy Picture of the Day</h1>
+        <p>Author: Dr. Melchisedec Bankole</p>
+    </div>
+
+    <div id="content">
+        <h2>Astronomy Picture of the Day</h2>
+        <img id="apod-image" src="" alt="Astronomy Picture of the Day">
+    </div>
+
+    <div id="footer">
+        <p>&copy; 2023 Dr Melchisedec Bankole</p>
+    </div>
+
+    <audio autoplay loop>
+        <source
+        src="background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+            .then(response => response.json())
+            .then(data => {
+                const title = data.title;
+                const explanation = data.explanation;
+                const imageUrl = data.url;
+
+                document.title = title;
+                document.getElementById('apod-image').src = imageUrl;
+
+                const content = document.getElementById('content');
+                const imageTitle = document.createElement('h3');
+                imageTitle.textContent = title;
+                const imageExplanation = document.createElement('p');
+                imageExplanation.textContent = explanation;
+
+                content.appendChild(imageTitle);
+                content.appendChild(imageExplanation);
+            })
+            .catch(error => console.error('Error fetching APOD data:', error));
+    </script>
+</body>
+</html>
